@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ShopContext } from '../context/Shopcontent'
 import { assets } from '../assets/asset'
+import Relatedproduct from '../components/Relatedproduct'
 
 const Product = () => {
 
   const {productId}=useParams()
-  const {products,currency}=useContext(ShopContext);
+  const {products,currency,addCart}=useContext(ShopContext);
   const [image, setImage]=useState('')
   const [size,setSize]=useState('')
 
@@ -71,7 +72,7 @@ const Product = () => {
           </div>
 
            </div>
-           <button className='py-2 px-4 border bg-black text-white text-sm hover:bg-gray-700 active:bg-white active:text-black rounded shadow'>Add to cart</button>
+           <button onClick={()=>addCart(productData.id,size)} className='py-2 px-4 border bg-black text-white text-sm hover:bg-gray-700 active:bg-white active:text-black rounded shadow'>Add to cart</button>
            <hr className='mt-8 sm:w-4/5' />
            <div className='text-gray-600 text-sm mt-5 flex flex-col  gap-1'>
             <p>100% orginal product</p>
@@ -91,6 +92,7 @@ const Product = () => {
              <p>My fashion e-commerce website is a modern, user-friendly platform dedicated to delivering the latest trends in clothing, accessories, and lifestyle fashion to a global audience. Built with both style and technology in mind, the site offers a seamless shopping experience with detailed product listings, high-resolution images, easy navigation, and secure checkout options. Whether you're into streetwear, casual chic, or elegant evening styles, the collection is carefully curated to reflect current fashion movements and customer preferences. Behind the scenes, the site is powered by reliable inventory management, fast order processing, and responsive customer support.</p>
            </div>
        </div>
+       <Relatedproduct category={productData.category} subCategory={productData.subCategory}/> 
     </div>
   ):<div className='opacity-0'></div>
 }

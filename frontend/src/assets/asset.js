@@ -34,6 +34,10 @@ import quality_icon from './quality_icon.png'
 import support_img from './support_img.png'
 import cross_icon from './cross_icon.png'
 import star_icon from './star_icon.png'
+import bin_icon from './bin_icon.png'
+import stripe_logo from './stripe_logo.png'
+import razor_pay from './razorpay_logo.png'
+import about_image from './about_image.jpg'
 export const assets={
     main_logo,
     search_icon,
@@ -47,6 +51,10 @@ export const assets={
     quality_icon,
     support_img,
     cross_icon,
+    bin_icon,
+    stripe_logo,
+    razor_pay,
+    about_image,
     p_img1,
     p_img2_1,
     p_img2_2,
