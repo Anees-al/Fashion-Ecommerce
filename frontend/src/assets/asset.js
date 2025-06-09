@@ -38,6 +38,7 @@ import bin_icon from './bin_icon.png'
 import stripe_logo from './stripe_logo.png'
 import razor_pay from './razorpay_logo.png'
 import about_image from './about_image.jpg'
+import contact_img from './contact_img.png'
 export const assets={
     main_logo,
     search_icon,
@@ -55,6 +56,7 @@ export const assets={
     stripe_logo,
     razor_pay,
     about_image,
+    contact_img,
     p_img1,
     p_img2_1,
     p_img2_2,
