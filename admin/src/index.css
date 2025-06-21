@@ -1,0 +1,21 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+.active{
+    background-color: rgb(55, 55, 55);
+    color: white;
+}
+
+select,input,textarea{
+    border:solid 1px;
+    border-radius: 5px;
+    outline-color: rgb(89, 88, 88);
+
+}
+
+
+*{
+    font-family: monospace;
+}

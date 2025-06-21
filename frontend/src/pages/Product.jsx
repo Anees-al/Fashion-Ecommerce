@@ -14,16 +14,19 @@ const Product = () => {
   const[productData,setProductData]=useState(false);
   
 
-  const fetchProductData=async()=>{
-        products.map((items)=>{
-          if(items.id===productId){
-            setProductData(items);
-            console.log(items)
-            setImage(items.image[0])
-            return null
-          }
-        })
+ const fetchProductData = () => {
+  if (products.length > 0) {
+    const foundProduct = products.find(item => item._id === productId);
+    if (foundProduct) {
+      setProductData(foundProduct);
+      setImage(foundProduct.image[0]);
+      console.log("Product found:", foundProduct);
+    } else {
+      console.log("Product not found with ID:", productId);
+    }
   }
+};
+
 
 
   useEffect(()=>{
@@ -36,8 +39,8 @@ const Product = () => {
         <div className='flex flex-col-reverse gap-3 sm:flex-row'>
             <div className='flex sm:flex-col  justify-between sm:justify-normal w-full sm:w-[18.7%]'>
                {
-                productData.image.map((item,index)=>(
-                  <img onClick={()=>setImage(item)}  src={item} key={index} className='w-[24%] sm:w-full sm:mb-3  flex-shrink-0 cursor-pointer'/>
+                productData.image?.map((item,index)=>(
+                  <img onClick={()=>setImage(item)}  src={item} key={index} className='w-[14%] sm:w-full sm:mb-3  flex-shrink-0 cursor-pointer'/>
                 ))
                }
             </div>
@@ -65,14 +68,14 @@ const Product = () => {
             <p>Select size</p>
           <div className='flex gap-2'>
             {
-              productData.sizes.map((item,index)=>(
+              productData.size?.map((item,index)=>(
                 <button onClick={()=>setSize(item)} className={`border py-2 px-4 bg-gray-100 hover:bg-gray-400 ${item === size ?'border-orange-400 text-white bg-gray-900':''}`} key={index}>{item}</button>
               ))
             }
           </div>
 
            </div>
-           <button onClick={()=>addCart(productData.id,size)} className='py-2 px-4 border bg-black text-white text-sm hover:bg-gray-700 active:bg-white active:text-black rounded shadow'>Add to cart</button>
+           <button onClick={()=>addCart(productData._id,size)} className='py-2 px-4 border bg-black text-white text-sm hover:bg-gray-700 active:bg-white active:text-black rounded shadow'>Add to cart</button>
            <hr className='mt-8 sm:w-4/5' />
            <div className='text-gray-600 text-sm mt-5 flex flex-col  gap-1'>
             <p>100% orginal product</p>
